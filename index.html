@@ -1,0 +1,269 @@
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+  html{
+    background-color: black;
+  }
+
+  h1 {
+    position:relative;
+    color: white;
+    display: flex;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    justify-content: center;
+    font-size: 35;
+  }
+
+  
+
+  #click-counter{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 20;
+    font-family: 'Press Start 2P', cursive;
+    opacity: 100%;
+
+  }
+
+  #count{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20;
+
+  }
+
+  #number{
+    position: relative;
+    color: red;
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  #video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 40%;
+}
+
+#div{
+  padding-top: 100px;
+}
+
+#encouragements{
+
+  position: relative;  
+  color: rgb(136, 247, 255);
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#pop1{
+  position: fixed;
+  left: 90px;
+  top: 40px;
+  font-size:25;
+  transform: rotate(-20deg);
+}
+
+#pop2{
+  color:rgb(255, 57, 255);
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  font-size:13;
+  transform: rotate(-5deg);
+}
+
+#pop2{
+  color:rgb(255, 57, 255);
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  font-size:13;
+  transform: rotate(-5deg);
+}
+
+#pop3{
+  color: yellow;
+  position: fixed;
+  left: 290px;
+  bottom: 200px;
+  font-size:13;
+  font-weight: bold;
+  transform: rotate(-30deg);
+}
+
+#pop4{
+  color: rgb(17, 197, 17);
+  position: fixed;
+  right: 100px;
+  top: 150px;
+  font-size:17;
+  font-weight: bold;
+  transform: rotate(-45deg);
+}
+
+#pop4{
+  color: rgb(17, 197, 17);
+  position: fixed;
+  right: 100px;
+  top: 150px;
+  font-size:17;
+  font-weight: bold;
+  transform: rotate(-45deg);
+}
+
+#pop5{
+  color: rgb(255, 117, 4);
+  position: fixed;
+  top: 30;
+  right: 500;  
+  font-size:19;
+  font-weight: bold;
+  transform: rotate(-10)
+}
+
+#pop6{
+  color: pink;
+  position: fixed;
+  bottom: 40;
+  right: 700;  
+  font-size:19;
+  font-weight: bold;
+  transform: rotate(13deg)
+}
+
+#pop7{
+  color:rgb(247, 78, 78);
+  position: fixed;
+  bottom: 75;
+  right: 470;  
+  font-size:15;
+  font-weight: bold;
+  transform: rotate(0deg)
+}
+
+
+
+</style>
+
+
+<html> 
+  
+
+<video autoplay muted loop id="video">
+  <source src="coins.mp4" type="video/mp4">
+</video>
+
+
+
+<div id="div">
+  <h1 > Click the number!</h1>
+
+  <p id="number" onclick="alert()" onclick="play()">1 </p>
+
+  <P id="click-counter"> Click Counter:</P>
+  <p id="count">0</p>
+</div>
+
+<div id="encouragements">
+  <p id="pop1"></p>
+  <p id="pop2"></p>
+  <p id="pop3"></p>  
+  <p id="pop4"></p>
+  <p id="pop5"></p>
+  <p id="pop6"></p>
+  <p id="pop7"></p>
+
+
+
+
+</div>
+
+
+</html>
+
+<script>
+
+  var video = document.getElementById("video")
+  video.playbackRate = 0.3;
+
+  var audio = new Audio('ding.wav'); 
+  audio.volume = 0.1;
+
+  var number = document.getElementById("number");
+  var counter = document.getElementById("count")
+  var count = 0
+
+  function alert(){
+    count += 1
+    counter.innerHTML = count;
+     
+    audio.play();
+    if (audio.paused) {
+        audio.play();
+    }else{
+        audio.currentTime = 0
+    }
+
+    number.innerHTML =  Math.floor(Math.random() *10000)
+
+    
+    if (count >5){
+      document.getElementById("pop1").innerHTML = "Dont Stop!!"
+      }
+
+    if (count >10){
+      document.getElementById("pop2").innerHTML = "You really like this huh?"
+      }
+
+    if (count >17){
+    document.getElementById("pop3").innerHTML = "Keep clicking!!"
+    }
+
+    if (count >23){
+    document.getElementById("pop4").innerHTML = "Wow! You're a natural!"
+    }
+
+    if (count >30){
+    document.getElementById("pop5").innerHTML = "Never Give Up!!!"
+    }
+
+    if (count >38){
+    document.getElementById("pop6").innerHTML = "Each click = 1 heart &lt3"
+    }
+
+    if (count >50){
+    document.getElementById("pop7").innerHTML = "The determination!!"
+    }
+
+    
+
+
+
+
+    }
+
+  
+  
+
+
+  
+
+
+
+</script>
